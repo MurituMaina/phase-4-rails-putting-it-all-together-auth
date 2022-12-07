@@ -9,8 +9,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    user = User.find(session[:user_id])
-    render json: user, status: :created
+    # user = User.find(session[:user_id])
+    # user
+    render json: @loggeIn_user, status: :created
   end
 
   private
@@ -18,9 +19,5 @@ class UsersController < ApplicationController
   def user_params
     params.permit(:username, :image_url, :bio, :password, :password_confirmation)
   end
-
-  # def render_response_not_found
-  #   render status: :unauthorized, json: { error: "" }
-  # end
 
 end
